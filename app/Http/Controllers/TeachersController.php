@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Teacher;
 use App\Section;
 
+
 class TeachersController extends Controller
 {
     public function index()
@@ -17,6 +18,7 @@ class TeachersController extends Controller
     {
     	$sections = Section::all();
         return view('teachers.create',compact('sections'));
+
     }
      public function store()
     {

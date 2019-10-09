@@ -16,16 +16,17 @@ class LoginController extends Controller
     {
     	if(Auth::attempt([
     		'email' => request()->email, 
-    		'password' => request()->password
+    		'password' => request()->password,
     	])) {
     		return redirect('/subjects');
     	}
 
-    	return redirect('/');
+    	return view('login')->with('error', 'Invalid Credentials');
     }
+
     public function logout()
     {
-        Auth::logout();
-        return redirect()-> route('login')->with('error', 'Invalid Credentials');
+    	Auth::logout();
+    	return redirect()->route('login')->with('error','Invalid Credentials');
     }
 }

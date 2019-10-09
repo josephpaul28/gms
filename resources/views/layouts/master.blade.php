@@ -13,24 +13,21 @@
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">GMS</a>
+      <a class="navbar-brand" href="/subjects">GMS</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-          <li><a href='/subjects'>Subjects</a></li>
-          <li><a href="/strands">Strands</a></li>
-          <li><a href="/teachers">Teachers</a></li>
-          <li><a href="/sections">Sections</a></li>
-          <li><a href="/subject-strands">Subject Strands</a></li>
-          <li><a href="/teachermodel">Teacher Load</a></li>
+          <li class="{{ setActive('subjects') }}"><a href='/subjects'>Subjects</a></li>
+          <li class="{{ setActive('strands') }}" ><a href="/strands">Strands</a></li>
+          <li class="{{ setActive('teachers') }}"><a href="/teachers">Teachers</a></li>
+          <li class="{{ setActive('sections') }}"><a  href="/sections">Sections</a></li>
+          <li class="{{ setActive('subject-strands') }}"><a href="/subject-strands">Subject Strands</a></li>
+          <li class="{{ setActive('teacher-loads') }}"><a href="/teacher-loads">Teacher Loads</a></li>
 
-          
-        </ul>
- <ul><a class="btn btn-primary" style ="float:right" href="./logout">Logout</a></ul>
-      </li>
-   
-   
-   
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+    </ul>
+      </li>   
   </div>
 </nav>
     @yield('content')
@@ -40,3 +37,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+

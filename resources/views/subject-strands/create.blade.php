@@ -5,25 +5,24 @@
         <form method="POST" action="/subject-strands/store">
             @csrf
           <div class="form-group">
-            <div class="form-group">
-                <label for="sel1">Subjetcs</label>
-              <select class="form-control" id="sel1" name="subject_id">
-                <option value = "Section A">Subject A</option>
-                <option value = "Section B">Subject B</option>
-                <option value = "Section C">Subject C</option>
-                <option value = "Section D">Subject D</option>
-              </select>
-            </div>
-      
-            <div>
-            <label for="sel1">Strands</label>
-              <select class="form-control" id="sel1" name="strand_id">
-                <option value = "Section A">CITCS </option>
-                <option value = "Section B">CTE </option>
-                <option value = "Section C">NURSING </option>
-                <option value = "Section D">CRIM </option>
-              </select>
-            </div>
+            <label for="title">Subject</label>
+            <!--<input type="text" class="form-control" name='subject_id' aria-describedby="emailHelp" placeholder="Subject ID">
+            <label for="sel1">Subject</label> -->
+            <select class="form-control" id="sel1" name='subject_id'>
+              @foreach ($subjects as $subject)
+              <option value='{{ $subject->id }}'>{{ $subject->name }}</option>
+              @endforeach
+            </select>
+            <!--<label for="title">Strand</label>
+            <input type="text" class="form-control" name='strand_id' aria-describedby="emailHelp" placeholder="Strand ID">
+             -->
+            <label for="title">Strand</label>
+            <select class="form-control" id="sel1" name='strand_id'>
+              @foreach ($strand as $strand)
+              <option value="{{ $strand->id }}">{{ $strand->name }}</option>
+              @endforeach
+             
+            </select>
             <label for="title">Semester</label>
             <input type="text" class="form-control" name='semester' aria-describedby="emailHelp" placeholder="Semester">
             <label for="title">Grade Level</label>

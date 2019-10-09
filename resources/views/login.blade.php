@@ -4,112 +4,51 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <style type="text/css">
-    body {
-		font-family: 'Varela Round', sans-serif;
+	.login-form {
+		width: 340px;
+    	margin: 50px auto;
 	}
-	.modal-login {
-		width: 320px;
-	}
-	.modal-login .modal-content {
-		border-radius: 1px;
-		border: none;
-	}
-	.modal-login .modal-header {
-        position: relative;
-		justify-content: center;
-        background: #f2f2f2;
-	}
-    .modal-login .modal-body {
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         padding: 30px;
     }
-    .modal-login .modal-footer {
-        background: #f2f2f2;
+    .login-form h2 {
+        margin: 0 0 15px;
     }
-	.modal-login h4 {
-		text-align: center;
-		font-size: 26px;
-	}
-    .modal-login label {
-        font-weight: normal;
-        font-size: 13px;
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
     }
-	.modal-login .form-control, .modal-login .btn {
-		min-height: 38px;
-		border-radius: 2px; 
-	}
-	.modal-login .hint-text {
-		text-align: center;
-	}
-	.modal-login .close {
-        position: absolute;
-		top: 15px;
-		right: 15px;
-	}
-    .modal-login .checkbox-inline {
-        margin-top: 12px;
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
     }
-    .modal-login input[type="checkbox"]{
-        margin-top: 2px;
-    }
-	.modal-login .btn {
-        min-width: 100px;
-		background: #3498db;
-		border: none;
-		line-height: normal;
-	}
-	.modal-login .btn:hover, .modal-login .btn:focus {
-		background: #248bd0;
-	}
-	.modal-login .hint-text a {
-		color: #999;
-	}
-	.trigger-btn {
-		display: inline-block;
-		margin: 100px auto;
-	}
 </style>
 </head>
 <body>
-<div class="text-center">
-	<!-- Button HTML (to Trigger Modal) -->
-	<a href="#myModal" class="trigger-btn" data-toggle="modal">LOGIN</a>
+<div class="login-form">
+    @isset($error)
+     <li class="alert alert-danger">{{ $error }}</li>
+     @endisset
+    <form action="/login" method="POST">
+        @csrf
+        <h2 class="text-center">Log in</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Email" required="required" name='email'>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required" name='password'>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>   
+    </form>
 </div>
-
-<!-- Modal HTML -->
-<div id="myModal" class="modal fade">
-	<div class="modal-dialog modal-login">
-		<div class="modal-content">
-			<form action="/login" method="POST">
-				@csrf
-				<div class="modal-header">				
-					<h4 class="modal-title">Login</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">				
-					<div class="form-group">
-						<label>Username</label>
-						<input type="text" class="form-control" required="required" name = "email">
-					</div>
-					<div class="form-group">
-						<div class="clearfix">
-							<label>Password</label>
-						</div>
-						
-						<input type="password" class="form-control" required="required" name = "password">
-					</div>
-				</div>
-				<div class="modal-footer">
-					<label class="checkbox-inline pull-left"><input type="checkbox"> Remember me</label>
-					<input type="submit" class="btn btn-primary pull-right" value="Login">
-				</div>
-			</form>
-		</div>
-	</div>
-</div>     
 </body>
-</html>                                		                             
+</html>
