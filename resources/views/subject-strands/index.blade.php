@@ -18,6 +18,7 @@
                         <td>{{ $subjectstrand->id }}</td>
                         <td>{{ $subjectstrand->subject->name }}</td>
                         <td>{{ $subjectstrand->strand->name }}</td>
+                    
                         <td>{{ $subjectstrand->semester }}</td>
                         <td>{{ $subjectstrand->grade_level }}</td>
                         
