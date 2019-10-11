@@ -32,23 +32,31 @@
 </style>
 </head>
 <body>
-<div class="login-form">
-    @isset($error)
-     <li class="alert alert-danger">{{ $error }}</li>
-     @endisset
-    <form action="/login" method="POST">
-        @csrf
-        <h2 class="text-center">Log in</h2>       
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Email" required="required" name='email'>
+<div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Welcome To GMS</h2>
+            </div>
+            <div class="card-body">
+                @isset($error)
+                    <li class="alert alert-danger">{{ $error }}</li>
+                @endisset
+                <form action="/login" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="">Login:</label>
+                        <input type="text" class="form-control" name='email'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password:</label>
+                        <input type="password" class="form-control" name='password'>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required" name='password'>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Log in</button>
-        </div>   
-    </form>
-</div>
+    </div>
 </body>
 </html>                                		                            
+
+

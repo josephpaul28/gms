@@ -70,6 +70,6 @@
     </div>
 
 <div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Add New Teacher Load</a>
+  <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Add New Teacher Load</a>
 </div>
 @endsection
